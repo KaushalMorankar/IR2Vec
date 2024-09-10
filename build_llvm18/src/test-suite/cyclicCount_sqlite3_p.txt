@@ -1,0 +1,2 @@
+/home/cs23btech11037/IR2Vec_18/IR2Vec/build_new/src/test-suite/sqlite-amalgamation-3460000/sqlite3.c	4115
+/home/cs23btech11037/IR2Vec_18/IR2Vec/build_new/src/test-suite/sqlite-amalgamation-3460000/sqlite3.c	4115

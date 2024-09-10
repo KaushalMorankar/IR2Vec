@@ -15,7 +15,7 @@ If you have not done `make`, follow the following steps to build `ir2vec` binary
 ## Step 2: Generating Triplets
 #### Steps to collect the triplets
  Run `triplets.sh` script with the required parameters
- Usage: `bash triplets.sh <build dir> <No of opt> <llFile list> <output FileName>`
+ Usage: `bash triplets.sh <build dir> <No of opt> <llFile list> <output FileName> <llvm build path>`
 * `buildDir` points to the path of IR2Vec's build folder
 * `numOpt` is an integer between `1` and `6`
     * Determines number of optimization sequences to apply on each file.
@@ -24,12 +24,13 @@ If you have not done `make`, follow the following steps to build `ir2vec` binary
 * `outputFileName` is the file where the triplets would be written
     * New file would be created if the file with given name *does not* exist.
     * If file *exists* with the given name, the triplets would be **appended** on to the same file.
+* `llvm build path` is the path of the build directory of the llvm version to which you want to upgrade.
 
 Example Usage:
 > bash triplets.sh ../build 2 files_path.txt triplets.txt
 
 #### Files used to generate Seed Embedding Vocabulary
-We generated ll files from `Boost` libraries and `spec cpu 2017` benchmarks to generate triplets.
+We generated ll files from `Boost` libraries and `spec cpu 2017` and `spec cpu 2006` benchmarks to generate triplets.
 
 Dataset | Source
 ------------ | -------------
@@ -52,6 +53,7 @@ We preprocess the generated triplets from the [previous step](#step-2-generating
 * `python preprocess.py --tripletFile=<tripletsFilePath>`
     * `--tripletFile` points to the location of the `outputFileName` generated in the [previous step](#step-2-generating-triplets)
     * The processed files `entity2id.txt`, `train2id.txt` and `relation2id.txt` will be generated in the same directory as that of `tripletsFilePath`.
+    *Create an empty embeedings direectory inside the preprocessed dirctory which got created previously
 
 #### Training TransE to generate embeddings
 Run  `python generate_embedding_ray.py`

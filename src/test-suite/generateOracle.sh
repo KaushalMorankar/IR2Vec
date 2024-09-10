@@ -3,8 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 #
 
-SEED_VERSION="llvm17"
 SQLITE_INPUT=./sqlite3.ll
+SEED_VERSION="llvm18"
+#SRC_WD=PE-benchmarks-llfiles-llvm18
 DEST_FOLDER_SYM_P="oracle/SYM_${SEED_VERSION}_p"
 DEST_FOLDER_FA_P="oracle/FA_${SEED_VERSION}_p"
 
@@ -22,10 +23,10 @@ mkdir -p ${DEST_FOLDER_SYM_ONDEMAND}
 mkdir -p ${DEST_FOLDER_FA_ONDEMAND}
 
 # Update the BUILD to use
-LLVM_BUILD="/usr"
+LLVM_BUILD="/home/cs23btech11037/llvm-project/build_18"
 
 #Update IR2Vec Path to use
-IR2VEC_PATH="../../build/bin/ir2vec"
+IR2VEC_PATH="../../build_llvm18/bin/ir2vec"
 
 if [ -z ${LLVM_BUILD} ]; then
 	echo "Enter the llvm build path.."
